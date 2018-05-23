@@ -1,1 +1,1 @@
-docker run -p 8080:8080 jee-micro
+docker run -it -p 8080:8080 jee-micro
