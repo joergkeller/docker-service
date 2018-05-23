@@ -1,0 +1,3 @@
+rootProject.name = 'hello-service'
+
+include 'rest-app', 'jetty-app'

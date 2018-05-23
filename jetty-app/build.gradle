@@ -1,0 +1,24 @@
+/*
+ * Subproject build of a standalone jetty app.
+ * - gradlew shadowJar
+ * A fat jar with all dependencies is created and can be started:
+ * - java -jar jetty-app-1.0-all.jar
+ */
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+mainClassName = 'ch.jokel.experiment.hello.app.jetty.JettyMain'
+
+dependencies {
+    compile project(':rest-app')
+
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.10.v20180503'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.10.v20180503'
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version: '2.27'
+    compile group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '2.27'
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: '2.27'
+}

@@ -1,0 +1,32 @@
+plugins {
+    id 'war'
+}
+
+dependencies {
+    compileOnly 'org.eclipse.microprofile:microprofile:1.3'
+}
+
+task copyToDocker(type: Copy) {
+    from war // shortcut for war.outputs.files
+    //rename "rest-app-${version}.war", 'hello.war'
+    into '../docker/jee-micro/'
+}
+
+task unzip(type: Copy) {
+    dependsOn war
+
+    def zipFile = file("${buildDir}/libs/rest-app-${version}.war")
+    def outputDir = file("${buildDir}/exploded")
+
+    from zipTree(zipFile)
+    into outputDir
+}
+
+task touch {
+    dependsOn unzip
+
+    ant.touch(file:"${buildDir}/exploded/.reload", mkdirs:true)
+}
+
+war.finalizedBy touch
+war.finalizedBy copyToDocker
