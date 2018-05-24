@@ -3,7 +3,17 @@ plugins {
 }
 
 dependencies {
-    compileOnly "org.eclipse.microprofile:microprofile:${microprofile}"
+    compileOnly "org.eclipse.microprofile:microprofile:$microprofileVersion"
+
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testCompile "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testCompile "org.hamcrest:hamcrest-junit:$hamcrestVersion"
+    testCompile "org.mockito:mockito-core:$mockitoVersion"
+    testCompile "org.mockito:mockito-junit-jupiter:$mockitoVersion"
+}
+
+test {
+    useJUnitPlatform()
 }
 
 task copyToDocker(type: Copy) {

@@ -16,9 +16,9 @@ mainClassName = 'ch.jokel.experiment.hello.app.jetty.JettyMain'
 dependencies {
     compile project(':rest-app')
 
-    compile "org.eclipse.jetty:jetty-server:$jetty"
-    compile "org.eclipse.jetty:jetty-servlet:$jetty"
-    compile "org.glassfish.jersey.core:jersey-server:$jersey"
-    compile "org.glassfish.jersey.inject:jersey-hk2:$jersey"
-    compile "org.glassfish.jersey.containers:jersey-container-servlet:$jersey"
+    compile "org.eclipse.jetty:jetty-server:$jettyVersion"
+    compile "org.eclipse.jetty:jetty-servlet:$jettyVersion"
+    compile "org.glassfish.jersey.core:jersey-server:$jerseyVersion"
+    compile "org.glassfish.jersey.inject:jersey-hk2:$jerseyVersion"
+    compile "org.glassfish.jersey.containers:jersey-container-servlet:$jerseyVersion"
 }
