@@ -1,3 +1,3 @@
 rootProject.name = 'hello-service'
 
-include 'rest-app', 'jetty-app'
+include 'rest-app', 'jetty-app', 'docker/jee-micro', 'docker/jee-micro-dev'

@@ -1,0 +1,1 @@
+docker run -it -p 8080:8080 -v %~dp0\..\..\..\rest-app\build\exploded:/opt/payara/deployments/hello jee-micro-dev

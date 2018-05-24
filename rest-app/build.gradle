@@ -9,7 +9,7 @@ dependencies {
 task copyToDocker(type: Copy) {
     from war // shortcut for war.outputs.files
     //rename "rest-app-${version}.war", 'hello.war'
-    into '../docker/jee-micro/'
+    into '../docker/jee-micro/docker'
 }
 
 task unzip(type: Copy) {
