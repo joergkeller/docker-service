@@ -4,20 +4,17 @@ pipeline {
     stages {
         stage('Info') {
             steps {
-                sh ./gradlew --version
+                 sh ./gradlew --version
             }
         }
-
         stage('Build') {
             steps {
-                sh ./gradlew --console verbose clean
-                sh ./gradlew --console verbose classes testClasses
-                sh ./gradlew --console verbose war
+                echo 'Building..'
             }
         }
-        stage('Unit') {
+        stage('Test') {
             steps {
-                sh ./gradlew --console verbose test
+                echo 'Testing..'
             }
         }
         stage('Deploy') {
