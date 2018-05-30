@@ -9,12 +9,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh './gradlew --console verbose clean'
+                sh './gradlew --console verbose classes testClasses'
+                sh './gradlew --console verbose war'
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
-                echo 'Testing..'
+                sh './gradlew --console verbose test'
             }
         }
         stage('Deploy') {
