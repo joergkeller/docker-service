@@ -8,14 +8,14 @@ pipeline {
             }
         }
 
-        stage('Build / Package') {
+        stage('Build') {
             steps {
                 sh ./gradlew --console verbose clean
                 sh ./gradlew --console verbose classes testClasses
                 sh ./gradlew --console verbose war
             }
         }
-        stage('Unit Test') {
+        stage('Unit') {
             steps {
                 sh ./gradlew --console verbose test
             }
