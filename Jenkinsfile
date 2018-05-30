@@ -2,15 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+        stage('Info') {
+            sh ./gradlew --version
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+
+        stage('Build / Package') {
+            sh ./gradlew --console verbose clean
+            sh ./gradlew --console verbose classes testClasses
+            sh ./gradlew --console verbose war
+        }
+        stage('Unit Test') {
+            sh ./gradlew --console verbose test
         }
         stage('Deploy') {
             steps {
