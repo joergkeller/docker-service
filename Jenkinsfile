@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Info') {
             steps {
-                 sh './gradlew --version'
+                sh 'chmod +x gradlew'
+                sh './gradlew --version'
             }
         }
         stage('Build') {
