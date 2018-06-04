@@ -14,14 +14,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './gradlew --console verbose clean'
-                sh './gradlew --console verbose classes testClasses'
-                sh './gradlew --console verbose war'
+                sh './gradlew --info clean'
+                sh './gradlew --info classes testClasses'
+                sh './gradlew --info war'
             }
         }
         stage('Unit Test') {
             steps {
-                sh './gradlew --console verbose test'
+                sh './gradlew --info test'
             }
         }
         stage('Deploy') {
