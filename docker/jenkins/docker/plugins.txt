@@ -1,0 +1,6 @@
+git:3.9.1
+github:1.29.1
+github-oauth:0.29
+workflow-aggregator:2.5
+workflow-multibranch:2.19
+greenballs:1.15
